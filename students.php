@@ -9,10 +9,24 @@ if($select){
     echo "Failed to select $db";
 }
 
-$query = "SELECT * FROM students";
+// По дефолту сортуємо по полю id
+$sortBy = "id"; 
+
+// По натисканню кнопки у формі сортування змінюємо поле по якому сортуємо
+if (isset($_POST['sortBy']) && $_POST['sortBy'] === "last_name") {
+    $sortBy = "last_name";
+}
+
+$query = "SELECT * FROM students ORDER BY $sortBy";
 
 $response = mysqli_query($link, $query);
 ?>
+
+<!-- Кнопка зміни поля сортування -->
+<form method="post">
+    <input type="hidden" name="sortBy" value="<?php echo ($sortBy === "id") ? "last_name" : "id"; ?>">
+    <button type="submit">Sort by <?php echo ($sortBy === "id") ? "Name" : "ID"; ?></button>
+</form>
 
 <table border="1">
     <tr>
@@ -41,3 +55,5 @@ $response = mysqli_query($link, $query);
     }
     ?>
 </table>
+<p></p>
+<a href="index.php">To main page</a><br>

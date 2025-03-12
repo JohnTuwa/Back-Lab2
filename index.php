@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     $link = mysqli_connect("localhost", "root", "");
     if ($link) {
         echo "Connected to server", "<br>";
@@ -18,6 +18,7 @@
         echo "Failed to create database";
     }
 ?>
-<br>
+<br> -->
 <a href="students.php">See students</a><br> <!-- Гіперпосилання на таблицю студентів -->
-<a href="workplaces.php">See workplaces</a> <!-- Гіперпосилання на таблицю місць практики -->
+<a href="workplaces.php">See workplaces</a><p> <!-- Гіперпосилання на таблицю місць практики -->
+<a href="addWorkplc.php">Add workplace</a><br> <!-- Гіперпосилання на створення місця практики -->
